@@ -18,6 +18,30 @@
             <li class="list-inline-item"><a href="/addProduct.html"> Add product </a></li>
             <li class="list-inline-item"><a href="/listProducts.html"> List of product</a></li>
         </ul>
+
+<!--        ??????? ??????? ??? ??????????? ????? ?????? ????????-->
+        <table class="table">
+            <thead class="thead-dark">
+            <tr>
+                <th scope="col">id</th>
+                <th scope="col">name</th>
+                <th scope="col">description</th>
+                <th scope="col">price</th>
+                <th scope="col">delete product</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each = "product : ${products}">
+                <th scope="row">[[*{product.id}]]</th>
+                <td>[[*{product.name}]]</td>
+                <td>[[*{product.description}]]</td>
+                <td>[[*{product.price}]]</td>
+                <<td><a th:href="@{/deleteProd/{id}(id = ${product.id})}"
+                class = "btn btn-danger">delete</a></td>
+            </tr>
+            </tbody>
+        </table>
+
     </div>
 </div>
 
