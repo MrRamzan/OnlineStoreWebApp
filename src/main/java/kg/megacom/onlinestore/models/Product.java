@@ -17,4 +17,7 @@ public class Product {
     private String description;
     private double price;
 
+    @Lob
+    private String image;
+
 }

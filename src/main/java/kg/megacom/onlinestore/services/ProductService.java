@@ -1,7 +1,6 @@
 package kg.megacom.onlinestore.services;
 
 import kg.megacom.onlinestore.models.Product;
-import org.springframework.web.multipart.MultipartFile;
 
 import java.util.List;
 
