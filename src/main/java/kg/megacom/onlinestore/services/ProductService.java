@@ -1,12 +1,13 @@
 package kg.megacom.onlinestore.services;
 
 import kg.megacom.onlinestore.models.Product;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.util.List;
 
 public interface ProductService {
 
-    void saveProductToDB(String name, String description, double price);
+    void saveProductToDB(MultipartFile file, String name, String description, double price);
 
     List<Product> getAllProduct();
 

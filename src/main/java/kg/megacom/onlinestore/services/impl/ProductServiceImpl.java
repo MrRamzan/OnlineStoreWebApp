@@ -5,7 +5,11 @@ import kg.megacom.onlinestore.models.Product;
 import kg.megacom.onlinestore.services.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.util.StringUtils;
+import org.springframework.web.multipart.MultipartFile;
 
+import java.io.IOException;
+import java.util.Base64;
 import java.util.List;
 
 @Service
@@ -15,8 +19,17 @@ public class ProductServiceImpl implements ProductService {
     private ProductRepo productRepo;
 
     @Override
-    public void saveProductToDB(String name, String description, double price) {
+    public void saveProductToDB(MultipartFile file, String name, String description, double price) {
         Product newProduct = new Product();
+        String fileName = StringUtils.cleanPath(file.getOriginalFilename());
+        if (fileName.contains("..")){
+            System.out.println("not a valid file");
+        }
+        try {
+            newProduct.setImage(Base64.getEncoder().encodeToString(file.getBytes()));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
         newProduct.setDescription(description);
         newProduct.setName(name);
         newProduct.setPrice(price);

@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="en"
-      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
-      xmlns:th="http://www.thymeleaf.org">
+>
 <head>
     <title>products</title>
     <meta charset="ISO-8859-1">
@@ -20,15 +19,20 @@
         </ul>
 
         <div class="col-6">
-            <form action="/addP" method="Post">
+            <form action="/addP" method="Post" enctype="multipart/form-data">
                 <div class="form-group">
                     <label for="name">Product name</label>
                     <input type="text" name="pname" id="name" class="form-control">
                     <label for="price">Product price</label>
                     <input type="number" name="price" id="price" class="form-control">
                     <label for="desc">Product description</label>
-                    <input type="text" name="desc" id="desc" class="form-control">
-                    <br>
+                    <input type="text" name="desc" id="desc" class="form-control"><br>
+                    <div class="custom-file">
+                        <label>Add an image</label>
+                        <input type="file" name="file" class="custom-file-input" id="customFile">
+                        <label class="custom-file-label" for="customFile">Choose file</label>
+                    </div>
+                    <br><br>
                     <button type="submit" class="btn btn-primary">submit</button>
                 </div>
             </form>
