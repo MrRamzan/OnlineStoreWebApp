@@ -19,7 +19,7 @@ public class ProductServiceImpl implements ProductService {
     private ProductRepo productRepo;
 
     @Override
-    public void saveProductToDB(MultipartFile file, String name, String description, double price) {
+    public void saveProductToDB(MultipartFile file, String name, String description, int price) {
         Product newProduct = new Product();
         String fileName = StringUtils.cleanPath(file.getOriginalFilename());
         if (fileName.contains("..")){
@@ -65,7 +65,7 @@ public class ProductServiceImpl implements ProductService {
     }
 
     @Override
-    public void changeProductPrice(Long id, double price) {
+    public void changeProductPrice(Long id, int price) {
         if (productRepo.existsById(id)) {
             Product newProduct = productRepo.getById(id);
             newProduct.setPrice(price);

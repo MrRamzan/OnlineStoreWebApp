@@ -34,7 +34,7 @@ public class ProductController {
     @PostMapping("/addP")
     public String saveProduct(@RequestParam("file") MultipartFile file,
                               @RequestParam("pname") String name,
-                              @RequestParam("price") double price,
+                              @RequestParam("price") int price,
                               @RequestParam("desc") String desc) {
         productService.saveProductToDB(file, name, desc, price);
         return "redirect:/listProducts.html";
@@ -53,7 +53,7 @@ public class ProductController {
     }
 
     @PostMapping("/changePrice")
-    public String changePrice(@RequestParam("id") Long id, @RequestParam("newPrice") double price) {
+    public String changePrice(@RequestParam("id") Long id, @RequestParam("newPrice") int price) {
         productService.changeProductPrice(id, price);
         return "redirect:/listProducts.html";
     }

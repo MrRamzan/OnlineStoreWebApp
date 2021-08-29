@@ -7,7 +7,7 @@ import java.util.List;
 
 public interface ProductService {
 
-    void saveProductToDB(MultipartFile file, String name, String description, double price);
+    void saveProductToDB(MultipartFile file, String name, String description, int price);
 
     List<Product> getAllProduct();
 
@@ -17,5 +17,5 @@ public interface ProductService {
 
     void changeProductDescription(Long id, String description);
 
-    void changeProductPrice(Long id, double price);
+    void changeProductPrice(Long id, int price);
 }
